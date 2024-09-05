@@ -1,0 +1,31 @@
+
+CFLAGS = -Os -Wall -fPIC
+CFLAGS += -I. 
+
+LDFLAGS =
+
+OBJS = example.o
+
+all: libexample.so libexample.a
+
+libexample.so: $(OBJS)
+	@$(LD) $(LDFLAGS) -shared -o $@ $^
+
+libexample.a: $(OBJS)
+	@rm -f $@
+	@$(AR) cruv $@ $^
+
+clean:
+	rm -f *.o *.so *.a .*.depend
+
+%.o: %.c .%.depend
+	@$(CC) $(CFLAGS) -o $@ -c $<
+
+.depend: $(OBJS:%.o=%.c)
+	@$(CC) $(CFLAGS) -M $^ > .depend
+
+.%.depend: %.c
+	@$(CC) $(CFLAGS) -M $< > $@
+
+-include $(OBJS:%.o=.%.depend)
+

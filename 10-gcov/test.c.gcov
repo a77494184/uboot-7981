@@ -1,0 +1,24 @@
+        -:    0:Source:test.c
+        -:    0:Graph:test.gcno
+        -:    0:Data:test.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:
+    #####:    3:void callme(void)
+        -:    4:{
+        -:    5:
+        -:    6:
+    #####:    7:}
+        -:    8:
+        1:    9:int main(void)
+        -:   10:{	
+        1:   11:	int c = 100;
+        -:   12:
+      102:   13:	while (c)
+        -:   14:	{
+      100:   15:		c--;
+        -:   16:	}
+        -:   17:
+        1:   18:	printf("end\n");
+        -:   19:}
